@@ -21,6 +21,8 @@ Pet Homepage
                 <p class="card-text">
                     {% if pet.available %}
                     <b class="text-success">Available</b>
+                    {% else %}
+                    <b class="text-danger">Not Available</b>
                     {% endif %}
                 </p>
             </div>
