@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+Add a pet
+{% endblock %}
+
+{% block title %}
+<h1 class="text-light text-center display-3">Add a pet</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/add" method="POST" class="row text-light justify-content-center">
+    {{ form.hidden_tag() }}
+    <div class="col-4 mt-3">
+        {{ form.pet_name.label(class_="form-label")}}
+        {{ form.pet_name(class_="form-control") }}
+    </div>
+    <div class="col-4 mt-3">
+        {{ form.species.label(class_="form-label")}}
+        {{ form.species(class_="form-control")}}
+    </div>
+    <div class="col-8 mt-3">
+        {{ form.photo_url.label(class_="form-label")}}
+        {{ form.photo_url(class_="form-control")}}
+    </div>
+    <div class="col-8 mt-3">
+        {{ form.age.label(class_="form-label")}}
+        {{ form.age(class_="form-control")}}
+    </div>
+    <div class="col-8 mt-3">
+        {{ form.notes.label(class_="form-label")}}
+        {{ form.notes(class_="form-control")}}
+    </div>
+    <div class="col-8 mt-4">
+        <button class="btn btn-primary">Submit</button>
+        <a href="/" class="btn btn-danger ms-3">Go back</a>
+    </div>
+</form>
+{% endblock %}

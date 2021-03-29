@@ -21,7 +21,9 @@ def show_homepage():
     all_pets = Pet.query.all()
     return render_template('homepage.html', pets=all_pets)
 
-@app.route('/add')
+@app.route('/add', methods=['POST', 'GET'])
 def add_pet():
     """Add a pet to the database."""
-    return render_template('add_pet.html')
+    form = AddPetForm()
+
+    return render_template('add_pet.html', form=form)
