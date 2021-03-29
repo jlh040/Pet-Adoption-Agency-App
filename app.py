@@ -1,6 +1,7 @@
 from flask import Flask, session, render_template, flash, redirect, request
 from flask_debugtoolbar import DebugToolbarExtension
 from models import connect_db, Pet
+from forms import AddPetForm
 
 app = Flask(__name__)
 
@@ -20,3 +21,7 @@ def show_homepage():
     all_pets = Pet.query.all()
     return render_template('homepage.html', pets=all_pets)
 
+@app.route('/add')
+def add_pet():
+    """Add a pet to the database."""
+    return render_template('add_pet.html')
