@@ -29,6 +29,12 @@ Edit Pet
             <div class="mt-5">
                 {{ form.photo_url.label(class_="form-label") }}
                 {{ form.photo_url(class_="form-control") }}
+
+                {% for error in form.photo_url.errors %}
+                <div class="form-text text-danger">
+                    {{ error }}
+                </div>
+                {% endfor %}
             </div>
             <div class="mt-5">
                 {{ form.notes.label(class_="form-label") }}
