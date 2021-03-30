@@ -25,6 +25,7 @@ Edit Pet
     </div>
     <div class="col-6 text-light">
         <form action="/{{ pet.id }}" method="POST">
+            {{ form.hidden_tag() }}
             <div class="mt-5">
                 {{ form.photo_url.label(class_="form-label") }}
                 {{ form.photo_url(class_="form-control") }}
@@ -34,12 +35,12 @@ Edit Pet
                 {{ form.notes(class_="form-control") }}
             </div>
             <div class="form-check mt-5">
-                <input class="form-check-input" name="available" type="checkbox" id="available" {% if pet.available %} checked {% endif %}>
-                <label class="form-check-label" for="available">Available</label>
+                {{ form.available(class_="form-check-input") }}
+                {{ form.available.label(class_="form-check-label")}}
             </div>
             <div>
                 <button class="btn btn-outline-success mt-3">
-                    Submit
+                    Edit
                 </button>
                 <a href="/" class="btn btn-outline-primary mt-3 ms-3">
                     Go back

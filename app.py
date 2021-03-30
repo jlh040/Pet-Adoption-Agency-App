@@ -18,7 +18,7 @@ debug = DebugToolbarExtension(app)
 @app.route('/')
 def show_homepage():
     """Show a listing of all the pets."""
-    all_pets = Pet.query.all()
+    all_pets = db.session.query(Pet).filter(Pet.id > 0).order_by('id').all()
     return render_template('homepage.html', pets=all_pets)
 
 @app.route('/add', methods=['POST', 'GET'])
@@ -39,9 +39,17 @@ def add_pet():
 
     return render_template('add_pet.html', form=form)
 
-@app.route('/<int:pet_id_number>', methods=['GET'])
+@app.route('/<int:pet_id_number>', methods=['GET', 'POST'])
 def edit_pet(pet_id_number):
     """Edit an existing pet."""
     pet = Pet.query.get(pet_id_number)
     form = AddPetForm(obj=pet)
+    print(form.data)
+    if form.validate_on_submit():
+        pet.photo_url = form.photo_url.data
+        pet.notes = form.notes.data
+        pet.available = True if form.available.data == True else False
+        db.session.commit()
+        return redirect('/')
+
     return render_template('edit_page.html', pet=pet, form=form)
