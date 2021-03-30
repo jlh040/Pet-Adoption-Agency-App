@@ -12,7 +12,7 @@ class Pet(db.Model):
     __tablename__ = 'pets'
 
     id = db.Column(db.Integer, autoincrement = True, primary_key = True)
-    name = db.Column(db.Text, nullable = False)
+    pet_name = db.Column(db.Text, nullable = False)
     species = db.Column(db.Text, nullable = False)
     photo_url = db.Column(db.Text, default = 'https://images.unsplash.com/photo-1439405326854-014607f694d7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8b2NlYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')
     age = db.Column(db.Integer)
