@@ -8,6 +8,7 @@ This is a basic pet adoption app, where a user can view all pets in our database
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - SQL
 - [SQLAlchemy](https://www.sqlalchemy.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
 - [Bootstrap](https://getbootstrap.com/)
 - HTML
