@@ -4,10 +4,11 @@ This is a basic pet adoption app, where a user can view all pets in our database
 
 ### Technologies used:
 
-- Python
-- Flask
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - SQL
-- SQLAlchemy
-- WTForms
-- Bootstrap
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
+- [Bootstrap](https://getbootstrap.com/)
 - HTML
+
