@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+Edit Pet
+{% endblock %}
+
+{% block title %}
+<h1 class="display-3 text-light text-center">Edit pet</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-6">
+        <div class="card bg-light">
+            <img src="{{ pet.photo_url }}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{ pet.pet_name }}</h5>
+                <p class="card-text">{{ pet.notes }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Species: {{ pet.species }}</li>
+                <li class="list-group-item">Age: {{ pet.age }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-6 text-light">
+        <form action="/{{ pet.id }}" method="POST">
+            <div class="mt-5">
+                {{ form.photo_url.label(class_="form-label") }}
+                {{ form.photo_url(class_="form-control") }}
+            </div>
+            <div class="mt-5">
+                {{ form.notes.label(class_="form-label") }}
+                {{ form.notes(class_="form-control") }}
+            </div>
+            <div class="form-check mt-5">
+                <input class="form-check-input" name="available" type="checkbox" id="available" {% if pet.available %} checked {% endif %}>
+                <label class="form-check-label" for="available">Available</label>
+            </div>
+            <div>
+                <button class="btn btn-outline-success mt-3">
+                    Submit
+                </button>
+                <a href="/" class="btn btn-outline-primary mt-3 ms-3">
+                    Go back
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

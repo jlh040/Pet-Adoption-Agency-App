@@ -35,8 +35,13 @@ def add_pet():
         pet = Pet(pet_name=pet_name, species=species, photo_url=photo_url, age=age, notes=notes)
         db.session.add(pet)
         db.session.commit()
-        
-        
         return redirect('/')
 
     return render_template('add_pet.html', form=form)
+
+@app.route('/<int:pet_id_number>', methods=['GET'])
+def edit_pet(pet_id_number):
+    """Edit an existing pet."""
+    pet = Pet.query.get(pet_id_number)
+    form = AddPetForm(obj=pet)
+    return render_template('edit_page.html', pet=pet, form=form)
